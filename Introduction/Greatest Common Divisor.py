@@ -14,5 +14,6 @@ def gcd(m, n):
         gcd(m, n)
     return m
 
+
 m = 24; n = 16
 print("The greatest common divisor of {} and {} is {}".format(m, n, gcd(m, n)))
