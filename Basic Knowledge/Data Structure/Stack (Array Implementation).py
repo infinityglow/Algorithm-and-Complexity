@@ -15,7 +15,7 @@ class Stack (object):
     def push(self, element):
         # examine overflow
         if self.top >= len(self.array) - 1:
-            raise IndexError("Stack overflow!")
+            raise IndexError("Stack overflow! ")
         else:
             self.top += 1  # increment top by 1
             self.array[self.top] = element

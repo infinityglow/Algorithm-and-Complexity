@@ -50,7 +50,7 @@ for e in elements:
     linked_list.insert(e)
 print("The original array: \n", linked_list.traversal())
 # search node 61
-print("Search node 61: ")
+print("Search node 61:")
 if linked_list.search(61):
     print("Search is successful!")
 else:

@@ -15,7 +15,7 @@ class Queue (object):
     def enqueue(self, element):
         # examine overflow
         if self.rear >= len(self.array) - 1:
-            raise IndexError("Queue overflow!")
+            raise IndexError("Queue overflow! ")
         else:
             self.rear += 1  # increment top by 1
             self.array[self.rear] = element

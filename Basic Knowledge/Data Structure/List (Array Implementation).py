@@ -36,7 +36,7 @@ def remove(array, element):
 array = [24, 22, 76, 41, 7, 61, 15, 34, 80]
 print("The original array: \n", array)
 # search element 61
-print("Search element 61: ")
+print("Search element 61:")
 if search(array, 61) != -1:
     print("Search is successful!")
 else:
