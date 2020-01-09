@@ -2,18 +2,20 @@ import random
 import time
 
 
-# implementation of bubble sort
+# implementation of selection sort
 # to sort a random array with 10,000 elements
 # two metrics ("number of comparison" and "consumed time") for efficiency evaluation
 
 random.seed(1)  # for reproducibility
-def bubble_sort(array):
+def selection_sort(array):
     cnt = 0
     for i in range(len(array)-1):
-        for j in range(len(array)-i-1):
-            if array[j] > array[j+1]:
-                array[j], array[j+1] = array[j+1], array[j]
+        minimum = i
+        for j in range(i+1, len(array)):
+            if array[j] < array[minimum]:
+                minimum = j
             cnt += 1
+        array[minimum], array[i] = array[i], array[minimum]
     return cnt
 
 
@@ -23,7 +25,7 @@ total_comparison = 0
 for i in range(epoch):
     time_start = time.time()
     array = [random.randint(0,10000) for i in range(10000)]
-    comparison = bubble_sort(array)
+    comparison = selection_sort(array)
     time_finish = time.time()
     total_comparison += comparison
     time_in_total += time_finish-time_start
