@@ -23,6 +23,6 @@ for i in range(epoch):
     time_finish = time.time()
     total_comparison += comparison
     time_in_total += time_finish-time_start
-    print("Epoch {}: \n  number of comparison: {}\n  time consumed: {} s".format(i+1, comparison, time_finish-time_start))
+    print("Epoch {}: \n  number of comparison: {}\n  time consumed: {:.2f} s".format(i+1, comparison, time_finish-time_start))
 print("average number of comparison: %d" % (total_comparison/10))
 print('average time consumed: {:.2f} s'.format(time_in_total/10))
