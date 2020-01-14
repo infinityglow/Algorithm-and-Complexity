@@ -4,6 +4,7 @@
 """
 
 #  sequential list (linked list implementation) and its three operations: Search, Insert and Remove
+#  complexity: search Θ(n), insert Θ(1) remove Θ(1)
 
 class Node(object):
     def __init__ (self, value):

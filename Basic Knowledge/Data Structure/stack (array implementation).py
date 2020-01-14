@@ -4,6 +4,7 @@
 """
 
 # implementation of stack and its two operations: Push and Pop
+#  complexity: enqueue Θ(1), dequeue Θ(1)
 
 class Stack (object):
 

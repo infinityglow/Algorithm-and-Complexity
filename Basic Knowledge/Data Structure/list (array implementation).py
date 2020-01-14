@@ -4,6 +4,7 @@
 """
 
 #  sequential list (array implementation) and its three operations: Search, Insert and Remove
+#  complexity: search Θ(1), insert Θ(n) remove Θ(n)
 
 def search(array, element):
     length = len(array)

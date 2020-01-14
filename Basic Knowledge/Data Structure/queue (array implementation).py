@@ -4,6 +4,8 @@
 """
 
 # implementation of queue and its two operations: Enqueue and Dequeue
+#  complexity: enqueue Θ(1), dequeue Θ(1)
+
 
 class Queue (object):
 
