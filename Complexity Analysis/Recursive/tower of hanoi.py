@@ -4,6 +4,7 @@
 """
 
 # implementation of Tower of Hanoi (recursive)
+# time complexity: Θ(2^n)
 
 
 def hanoi(a, b, c, n):
