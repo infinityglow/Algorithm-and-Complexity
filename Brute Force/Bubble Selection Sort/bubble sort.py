@@ -5,6 +5,9 @@ import time
 # implementation of bubble sort
 # to sort a random array with 10,000 elements
 # two metrics ("number of comparison" and "consumed time") for efficiency evaluation
+# time complexity: Θ(n^2)
+# space complexity Θ(1)
+# stability: stable
 
 random.seed(1)  # for reproducibility
 def bubble_sort(array):

@@ -5,6 +5,9 @@ import time
 # implementation of selection sort
 # to sort a random array with 10,000 elements
 # two metrics ("number of comparison" and "consumed time") for efficiency evaluation
+# time complexity: Θ(n^2)
+# space complexity Θ(1)
+# stability: unstable
 
 random.seed(1)  # for reproducibility
 def selection_sort(array):
