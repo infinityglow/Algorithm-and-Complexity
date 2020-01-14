@@ -4,7 +4,11 @@
 """
 
 # solution of closest-pair problem (brute-force implementation)
-# method: enumerate all pairs of points, compute their distance, and find the minimal value
+# step:
+# 1. enumerate all pairs of points
+# 2. compute each pair's distance
+# 3. find the minimal value
+# time complexity: Θ(n^2)
 
 import numpy as np
 import matplotlib.pyplot as plt
