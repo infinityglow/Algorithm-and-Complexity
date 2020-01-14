@@ -6,7 +6,7 @@
 # implementation of string matching solved by brute-force approach
 # complementarity of DNA base pair, which has great similarity to string matching
 # method `convert` is for converting A to T, T to A, C to G and G to C
-
+# time complexity: Θ(mn) for the worst case, Θ(n) for the average case
 
 def string_matching_bf(text, pattern):
     text = convert(text)
