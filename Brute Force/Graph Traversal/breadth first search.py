@@ -4,6 +4,7 @@
 """
 
 # implementation of graph traversal (breadth-first search).
+# time complexity: Θ(|V|^2) for adjacency matrix; Θ(|V|+|E|) for adjacency list
 
 class Vertex(object):
     def __init__(self, value, visited):
