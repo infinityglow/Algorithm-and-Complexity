@@ -4,7 +4,7 @@
 @author: Hongzhi Fu
 """
 
-# Euclid's algorithm to find the greatest common divisor with the complexity O(log n)
+# Euclid's algorithm to find the greatest common divisor with the complexity Θ(log n)
 
 def gcd(m, n):
     while n != 0:
