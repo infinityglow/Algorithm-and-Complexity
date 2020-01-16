@@ -27,7 +27,6 @@ def bfs(v):
         v = queue.pop(0)  # dequeue vertex v
         display(v)
 
-
 # iterate vertices of the graph
 def BFS(G):
     V = G.keys()
