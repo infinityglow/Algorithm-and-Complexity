@@ -7,7 +7,7 @@
 # step:
 # 1. enumerate all pairs of points
 # 2. for each pair, check the remaining points whether they stand in the same side
-# 3. select those pair that all the remaining points
+# 3. select the pair that satisfy step 2.
 # time complexity: Θ(n^3)
 
 import numpy as np
