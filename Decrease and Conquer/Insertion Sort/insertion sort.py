@@ -1,14 +1,12 @@
 import time
 from array import generator
 
-
 # implementation of insertion sort
 # to sort a random array with 10,000 elements
 # two metrics ("number of comparison" and "consumed time") for efficiency evaluation
 # time complexity: Θ(n^2) for the worst and average case, and Θ(n) for the best case
 # space complexity Θ(1)
 # stability: stable
-
 
 def insertion_sort(array):
     cnt = 0

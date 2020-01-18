@@ -17,3 +17,5 @@ class generator(object):
         return sorted([random.randint(0,self.size) for i in range(self.size)])
     def worst(self):
         return sorted([random.randint(0,self.size) for i in range(self.size)], reverse=True)
+
+
