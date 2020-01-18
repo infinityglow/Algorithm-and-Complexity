@@ -1,4 +1,3 @@
-import random
 import time
 from array import generator
 
@@ -13,7 +12,7 @@ from array import generator
 
 def insertion_sort(array):
     cnt = 0
-    for i in range(len(array)-1):
+    for i in range(1, len(array)):
         v = array[i]
         j = i - 1
         while True:
