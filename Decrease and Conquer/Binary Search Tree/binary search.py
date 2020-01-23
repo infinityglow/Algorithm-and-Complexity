@@ -9,7 +9,7 @@
 def binary_search(array, key):
     l = 0; r = len(array) - 1
     while l <= r:
-        m = (l + r) // 2  # 向下取整
+        m = (l + r) // 2  # round down
         if key == array[m]:
             return m
         elif key < array[m]:
