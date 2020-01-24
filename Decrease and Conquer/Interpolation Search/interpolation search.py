@@ -15,13 +15,13 @@ def formula(l, r, key, array):
 def interpolation_search(array, key):
     l = 0; r = len(array) - 1
     while l <= r:
-        m = l + formula(l, r, key, array)
-        if array[m] == key:
-            return m
-        elif array[m] < key:
-            l = m + 1
+        x = l + formula(l, r, key, array)
+        if array[x] == key:
+            return x
+        elif array[x] < key:
+            l = x + 1
         else:
-            r = m - 1
+            r = x - 1
     return -1
 
 
