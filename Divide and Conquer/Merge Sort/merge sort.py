@@ -13,36 +13,34 @@
 import time
 import random
 
-def merge(A, B):
+def merge(a, b):
     i, j, k = 0, 0, 0  # initialize variables
-    p, q = len(A), len(B)
+    p, q = len(a), len(b)
     global comparison  # global variable
-    C = [0 for i in range(p+q)]
+    c = [0 for i in range(p+q)]
     while i < p and j < q:
-        if A[i] <= B[j]:
-            C[k] = A[i]
-            i += 1
+        if a[i] <= b[j]:
+            c[k] = a[i]; i += 1
         else:
-            C[k] = B[j]
-            j += 1
+            c[k] = b[j]; j += 1
         k += 1
         comparison += 1
     while i < p:
-        C[k] = A[i]
+        c[k] = a[i]
         i += 1; k += 1
     while j < q:
-        C[k] = B[j]
+        c[k] = b[j]
         j += 1; k += 1
-    return C
+    return c
 
 def merge_sort(array):
     if len(array) <= 1:
         return array
-    m = len(array) // 2
-    a = merge_sort(array[: m])
-    b = merge_sort(array[m:])
-    c = merge(a, b)
-    return c
+    m = len(array) // 2  # middle position
+    A = merge_sort(array[: m])
+    B = merge_sort(array[m:])
+    C = merge(A, B)
+    return C
 
 time_in_total = 0
 epoch = 5  # num of iteration
