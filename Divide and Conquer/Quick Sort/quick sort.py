@@ -58,6 +58,7 @@ for i in range(epoch):
 print("average number of comparison: %d" % (total_comparison/epoch))
 print('average time consumed: {:.4f} s'.format(time_in_total/epoch))
 
+total_comparison = 0; time_in_total = 0
 # worst case Θ(n^2)
 print("Worst Case: ")
 for i in range(epoch):
