@@ -25,16 +25,16 @@ def partition(a):
     for i in range(l+1, r+1):
         if a[i] < pivot:
             s += 1
-            a[s], a[i] = a[i], a[s]
+            a[s], a[i] = a[i], a[s]  # swap a[s] with a[i]
         comparison += 1
-    a[l], a[s] = a[s], a[l]
+    a[l], a[s] = a[s], a[l]  # swap a[l] with a[s]
     return s
 
 def quick_sort(array):
     if len(array) > 1:
         s = partition(array)
-        array[0: s] = quick_sort(array[0: s])
-        array[s+1: len(array)] = quick_sort(array[s+1: len(array)])
+        array[0: s] = quick_sort(array[0: s])  # left sub-array
+        array[s+1: len(array)] = quick_sort(array[s+1: len(array)])  # right sub-array
     return array
 
 time_in_total = 0
