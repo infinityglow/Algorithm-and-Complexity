@@ -22,17 +22,17 @@ def pre_order(T):
 # in-order
 def in_order(T):
     if T.left:
-        pre_order(T.left)
+        in_order(T.left)
     print(T.value, end=' ')
     if T.right:
-        pre_order(T.right)
+        in_order(T.right)
 
 # post-order
 def post_order(T):
     if T.left:
-        pre_order(T.left)
+        post_order(T.left)
     if T.right:
-        pre_order(T.right)
+        post_order(T.right)
     print(T.value, end=' ')
 
 
