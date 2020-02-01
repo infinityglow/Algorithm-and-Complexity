@@ -31,9 +31,9 @@ def closest_pair_dc(P, Q, n):
     if n <= 3:
         return brute_force(P, Q)
     else:
-        left = (len(P) + 1) // 2; right = len(P) - left  # index of middle position
-        P_left = P[:left]; P_right = P[right:]
-        Q_left = Q[:left]; Q_right = Q[right:]
+        left = (len(P) + 1) // 2; right = len(P) - left  # number of points of left and right part
+        P_left = P[:left]; P_right = P[left:]
+        Q_left = Q[:left]; Q_right = Q[left:]
         d_left, pair_left = closest_pair_dc(P_left, Q_left, left)  # find the closest pair from the left recursively
         d_right, pair_right = closest_pair_dc(P_right, Q_right, right)  # find the closest pair from the right recursively
         # choose the shorter one
