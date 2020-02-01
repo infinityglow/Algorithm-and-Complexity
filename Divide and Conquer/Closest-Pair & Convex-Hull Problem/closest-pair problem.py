@@ -77,5 +77,5 @@ y = []
 for x_i in x:
     y.append(XY_pair[x_i])
 
-dmin, pair = closest_pair_dc(x, y, len(XY_pair))
-plotting(dmin, pair)
+dmin, pairs = closest_pair_dc(x, y, len(XY_pair))
+plotting(dmin, pairs)
