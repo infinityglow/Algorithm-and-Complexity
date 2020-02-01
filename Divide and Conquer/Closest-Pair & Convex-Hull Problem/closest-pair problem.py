@@ -18,6 +18,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+np.random.seed(13)  # for reproducibility
+
 def brute_force(x, y):
     dmin = np.inf  # initialize dmin to infinity
     for i in range(len(x)):
@@ -64,7 +66,6 @@ def plotting(d, pair):
     plt.grid()
     plt.show()
 
-np.random.seed(13)  # for reproducibility
 X = np.random.normal(2, 0.5, size=[16, 1])
 Y = np.random.normal(2, 0.5, size=[16, 1])
 XY_pair = {}
