@@ -20,7 +20,7 @@ def compute_mode_bf(array):
 """
 
 def compute_mode_presort(array):
-    array.sort()
+    array.sort()  # sort array
     i = 0; freq = 0
     while i < len(array):
         temp_freq = 1; temp_mode = array[i]

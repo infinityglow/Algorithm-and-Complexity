@@ -19,7 +19,7 @@ def is_unique_bf(array):
 
 def is_unique_presort(array):
     length = len(array)
-    array.sort()
+    array.sort()  # sort array
     for i in range(length-1):
         if array[i] == array[i+1]:
             return False
