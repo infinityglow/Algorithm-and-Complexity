@@ -4,9 +4,13 @@
 """
 
 # implementation of checking element uniqueness with the idea of presorting
+# time complexity: Θ(nlog n) + Θ(n) = Θ(nlog n)
+# space complexity: Θ(1)
 
 """
 # brute-force approach
+# time complexity: Θ(n^2)
+# space complexity: Θ(1)
 def is_unique_bf(array):
     length = len(array)
     for i in range(length-1):

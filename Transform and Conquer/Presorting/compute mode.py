@@ -4,9 +4,13 @@
 """
 
 # implementation of finding a mode in an array with the idea of presorting
+# time complexity: Θ(nlog n) + Θ(n) = Θ(nlog n)
+# space complexity: Θ(1)
 
 """
 # brute-force approach
+# time complexity: Θ(n^2)
+# space complexity: Θ(n)
 def compute_mode_bf(array):
     counter = {}
     for i in range(len(array)):
