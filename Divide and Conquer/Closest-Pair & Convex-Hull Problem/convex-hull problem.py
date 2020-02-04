@@ -12,6 +12,7 @@
 # 4. let p1p_max and p_maxpn be the new vector
 # 5. find the new p_max on the left(right) side of vector in the upper(lower) hull.
 # 6. execute step 3-5 recursively until there are no points left.
+# time complexity: Θ(nlog n)
 
 import numpy as np
 import matplotlib.pyplot as plt

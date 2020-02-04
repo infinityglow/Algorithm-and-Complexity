@@ -14,6 +14,7 @@
 #     let the pair be the closest pair and update d
 # 7. do this operation recursively until the number of points is less than or equal to three,
 #     then the brute-force approach is used to find the closest pair.
+# time complexity: Θ(nlog n)
 
 import numpy as np
 import matplotlib.pyplot as plt
