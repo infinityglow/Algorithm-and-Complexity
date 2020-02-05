@@ -1,6 +1,10 @@
+"""
+# -*- coding: utf-8 -*-
+@author: Hongzhi Fu
+"""
+
 import random
 import time
-
 
 # implementation of bubble sort
 # to sort a random array with 10,000 elements

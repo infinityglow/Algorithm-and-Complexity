@@ -1,3 +1,8 @@
+"""
+# -*- coding: utf-8 -*-
+@author: Hongzhi Fu
+"""
+
 import random
 import time
 
