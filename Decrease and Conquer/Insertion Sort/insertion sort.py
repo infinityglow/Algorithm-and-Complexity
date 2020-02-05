@@ -1,3 +1,8 @@
+"""
+# -*- coding: utf-8 -*-
+@author: Hongzhi Fu
+"""
+
 import time
 from array import generator
 
