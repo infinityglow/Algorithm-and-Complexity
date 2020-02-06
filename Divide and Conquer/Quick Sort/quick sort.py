@@ -11,7 +11,6 @@
 # stability: unstable
 
 import time
-import random
 import sys
 from array import generator
 
