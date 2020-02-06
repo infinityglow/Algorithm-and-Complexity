@@ -42,7 +42,7 @@ def heap_sort(array):
     for i in range((len(array)-2)//2, -1, -1):
         cnt += heaplify(array, i, len(array))
     for i in range(len(array)-1, -1, -1):
-        array[0], array[i] = array[i], array[0]  # exchange the first element with the last one
+        array[0], array[i] = array[i], array[0]  # swap the first element with the last one
         cnt += heaplify(array, 0, i)
     return cnt
 
