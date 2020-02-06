@@ -17,7 +17,7 @@ random.seed(1)  # for reproducibility
 
 def heaplify(array, temp_idx, size):
     cnt = 0
-    temp_val = array[temp_idx]  # store index and value temporarily
+    temp_val = array[temp_idx]  # store value temporarily
     heap = False
     while not heap and 2 * temp_idx + 1 < size:
         j = 2 * temp_idx + 1  # index of left child
