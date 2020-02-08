@@ -11,7 +11,7 @@ import time
 # two metrics ("number of comparison" and "consumed time") for efficiency evaluation
 # time complexity: Θ(nlog n) in all cases
 # space complexity: Θ(1)
-# stability: stable
+# stability: unstable
 
 random.seed(1)  # for reproducibility
 
