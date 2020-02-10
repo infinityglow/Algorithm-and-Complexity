@@ -51,9 +51,9 @@ class BST(object):
             return self.search_node(root.right, value)
         else:
             return root
-    def max(self, root):
+    def get_max(self, root):
         if root.right:
-            return self.max(root.right)
+            return self.get_max(root.right)
         return root
     def remove(self, value):
         # throw an exception if root is null
@@ -84,7 +84,7 @@ class BST(object):
                 return temp
             # both left and right child
             else:
-                temp = self.max(root.left)  # find the maximum value from the left sub-tree
+                temp = self.get_max(root.left)  # find the maximum value from the left sub-tree
                 root.value = temp.value
                 root.left = self.remove_node(root.left, temp.value)
         return root
