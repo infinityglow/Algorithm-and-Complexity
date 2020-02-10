@@ -81,7 +81,7 @@ class AVL_Tree(object):
         else:
             return root
     def insert(self, value):
-        node = Node(value)
+        node = Node(value)  # create a new node
         self.root = self.insert_node(self.root, node)
     def insert_node(self, root, node):
         if not root:
@@ -112,13 +112,14 @@ class AVL_Tree(object):
                 return self.left_rotation(root)
         return root
     def remove(self, value):
+        # throw an exception if root is null
         if not self.root:
             raise ValueError("The tree is null!")
         self.root = self.remove_node(self.root, value)
     def remove_node(self, root, value):
         if not root:
             return root
-        # search operation
+        # search
         if value < root.value:
             root.left = self.remove_node(root.left, value)
         elif value > root.value:
