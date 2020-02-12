@@ -114,7 +114,7 @@ class AVL_Tree(object):
     def remove(self, value):
         # throw an exception if root is null
         if not self.root:
-            raise ValueError("The tree is null!")
+            raise ValueError("The tree is null")
         self.root = self.remove_node(self.root, value)
     def remove_node(self, root, value):
         if not root:
