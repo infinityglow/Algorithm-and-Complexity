@@ -375,7 +375,6 @@ class Red_Black_Tree(object):
                         self.remove_leaf(parent, False)
         if flag:
             self.fix(node, self.NIL)
-
     def remove_one_child(self, node):
         if node.left is not self.NIL:
             node.left.color = 'b'
