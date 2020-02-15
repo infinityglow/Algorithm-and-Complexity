@@ -176,8 +176,32 @@ class Red_Black_Tree(object):
                 node.grandparent().color = 'r'
                 self.insert_case(node.grandparent())  # call insert_case() recursively
             else:
-                # case 3A: uncle is black or NIL, new node is the right child of parent, parent is the left child of grandparent
-                if node.parent.right is node and node.parent is node.grandparent().left:
+                # case 3A: uncle is black or NIL, new node is the left child of parent, parent is the left child of grandparent
+                if node.parent.left is node and node.parent is node.grandparent().left:
+                    """
+                            g(b)                    p(b)
+                           /    \                  /    \   
+                         p(r)   u(b)   ------>   n(r)   g(r)
+                          /                               \ 
+                        n(r)                             u(b)
+                    """
+                    node.parent.color = 'b'
+                    node.grandparent().color = 'r'
+                    self.right_rotation(node.parent)
+                # case 3B: uncle is black or NIL, new node is the right child of parent, parent is the left child of grandparent
+                elif node.parent.right is node and node.parent is node.grandparent().right:
+                    """
+                            g(b)                    p(b)
+                           /    \                  /    \   
+                         u(b)   p(r)   ------>   g(r)   n(r)
+                                  \               / 
+                                  n(r)          u(b)
+                    """
+                    node.parent.color = 'b'
+                    node.grandparent().color = 'r'
+                    self.left_rotation(node.parent)
+                # case 4A: uncle is black or NIL, new node is the right child of parent, parent is the left child of grandparent
+                elif node.parent.right is node and node.parent is node.grandparent().left:
                     """
                             g(b)                    g(b)                    n(b)
                            /    \                  /    \                  /    \   
@@ -189,7 +213,7 @@ class Red_Black_Tree(object):
                     node.grandparent().color = 'r'
                     self.left_rotation(node)
                     self.right_rotation(node)
-                # case 3B: uncle is black or NIL, new node is the left child of parent, parent is the right child of grandparent
+                # case 4B: uncle is black or NIL, new node is the left child of parent, parent is the right child of grandparent
                 elif node.parent.left is node and node.parent is node.grandparent().right:
                     """
                             g(b)                    g(b)                    n(b)
@@ -202,30 +226,6 @@ class Red_Black_Tree(object):
                     node.grandparent().color = 'r'
                     self.right_rotation(node)
                     self.left_rotation(node)
-                # case 4A: uncle is black or NIL, new node is the left child of parent, parent is the left child of grandparent
-                elif node.parent.left is node and node.parent is node.grandparent().left:
-                    """
-                            g(b)                    p(b)
-                           /    \                  /    \   
-                         p(r)   u(b)   ------>   n(r)   g(r)
-                          /                               \ 
-                        n(r)                             u(b)
-                    """
-                    node.parent.color = 'b'
-                    node.grandparent().color = 'r'
-                    self.right_rotation(node.parent)
-                # case 4B: uncle is black or NIL, new node is the right child of parent, parent is the left child of grandparent
-                elif node.parent.right is node and node.parent is node.grandparent().right:
-                    """
-                            g(b)                    p(b)
-                           /    \                  /    \   
-                         u(b)   p(r)   ------>   g(r)   n(r)
-                                  \               / 
-                                  n(r)          u(b)
-                    """
-                    node.parent.color = 'b'
-                    node.grandparent().color = 'r'
-                    self.left_rotation(node.parent)
     def remove(self, value):
         # throw an exception if root is null
         if not self.root:
