@@ -37,7 +37,7 @@ print("String matching solved by brute force approach:\n")
 print("The plain text is %s" % plain_text)
 print("The pattern string is %s\n" % pattern)
 status = string_matching_bf(plain_text, pattern)
-if  status != -1:
+if status != -1:
     print("String matching is successful, the index of first occurrence is %d." % status)
 else:
     print("String matching in unsuccessful.")
