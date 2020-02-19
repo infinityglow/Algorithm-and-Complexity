@@ -16,16 +16,16 @@ import random
 
 def counting_sort(array):
     largest = max(array); smallest = min(array)  # get the largest and smallest value
-    bucket = [0 for i in range(largest-smallest+1)]  # empty bucket array for counting
+    counter = [0 for i in range(largest-smallest+1)]  # empty counter array for counting
     idx = 0  # index for rearranging array
     cnt = 0
     for i in range(len(array)):
-        bucket[array[i]-smallest] += 1
-    for j in range(len(bucket)):
-        while bucket[j] > 0:
+        counter[array[i]-smallest] += 1
+    for j in range(len(counter)):
+        while counter[j] > 0:
             array[idx] = j + smallest
             idx += 1
-            bucket[j] -= 1
+            counter[j] -= 1
     return cnt
 
 
