@@ -5,7 +5,7 @@
 
 # implementation of string matching solved by Horspool's algorithm
 # complementarity of DNA base pair, which has great similarity to string matching
-# method `get_shift_table` builds a shift table from a given pattern
+# method `shift_table` builds a shift table from a given pattern
 # method `convert` is for converting A to T, T to A, C to G and G to C
 # time complexity: Θ(mn) for the worst case, even worse than brute-force approach,
 # e.g. text = 000000000000000000, pattern = 10000
