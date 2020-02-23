@@ -18,19 +18,19 @@ class HashTable(object):
     def function(self, key):
         return key % self.size
     def put(self, key):
-        value = self.function(key)
+        address = self.function(key)
         # table value is None
-        while self.table[value]:
-            value = (value + 1) % self.size
-        self.table[value] = key
+        while self.table[address]:
+            address = (address + 1) % self.size
+        self.table[address] = key
     def get(self, key):
-        value = self.function(key)
+        address = self.function(key)
         cnt = 1  # one attempt in a minimum
         # table value is None
-        while self.table[value] is not None:
-            if self.table[value] == key:
+        while self.table[address] is not None:
+            if self.table[address] == key:
                 return True, cnt
-            value = (value + 1)% self.size
+            address = (address + 1) % self.size
             cnt += 1
         return False, cnt
 

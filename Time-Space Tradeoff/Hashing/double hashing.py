@@ -21,11 +21,11 @@ class HashTable(object):
         m = self.size
         return m - 2 - key % (m - 2)
     def put(self, key):
-        value = self.function(key)
+        address = self.function(key)
         # table value is None
-        while self.table[value]:
-            value = self.function(value+self.rehash(key))
-        self.table[value] = key
+        while self.table[address]:
+            address = self.function(address+self.rehash(key))
+        self.table[address] = key
     def get(self, key):
         value = self.function(key)
         cnt = 1  # one attempt in a minimum

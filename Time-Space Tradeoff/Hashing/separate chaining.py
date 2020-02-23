@@ -23,13 +23,13 @@ class HashTable(object):
     def function(self, key):
         return key % self.size
     def put(self, key):
-        value = self.function(key)
+        address = self.function(key)
         node = Node(key)
         # table value is None
-        if not self.table[value]:
-            self.table[value] = node
+        if not self.table[address]:
+            self.table[address] = node
         else:
-            p = self.table[value]
+            p = self.table[address]
             while p.next:
                 p = p.next
             p.next = node
