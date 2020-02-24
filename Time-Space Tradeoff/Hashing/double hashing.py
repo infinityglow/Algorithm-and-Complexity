@@ -46,7 +46,6 @@ hashtable = HashTable(table_size)
 print("Put items into hash table:\n", keys)
 for key in keys:
     hashtable.put(key)
-print(hashtable.table)
 
 # search
 print("Get items from hash table:")
