@@ -44,6 +44,7 @@ print("Put items into hash table:\n", keys)
 for key in keys:
     hashtable.put(key)
 
+
 # search
 print("Get items from hash table:")
 search_keys = [60, 84, 22]
