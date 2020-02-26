@@ -32,10 +32,12 @@ def change_making_dp(money, amount):
     for i in range(1, amount+1):
         temp = inf
         j = 0
+        # min({F(n-di)|1<=i<=m}) if n-di > 0
         while j < len(money) and i >= money[j]:
             temp = min(temp, optima[i-money[j]])
             j += 1
         optima[i] = temp + 1
+    # backtracking
     while amount > 0:
         temp = inf; idx = 0
         for k in range(len(money)):
@@ -49,8 +51,8 @@ def change_making_dp(money, amount):
     return optima[-1]
 
 
-denomination = [1, 2, 5, 10, 20]
-amount = 39
+denomination = [1, 5, 10, 20, 50, 100]
+amount = 396
 combination = []
 print("Change-making problem solved by dynamic programming: ")
 print("Denominations:\n", denomination)

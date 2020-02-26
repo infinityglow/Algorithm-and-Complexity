@@ -7,7 +7,7 @@
 # suppose there is a row of n coins, whose values are d1, d2, ..., dm
 # the goal is to pick up a combination that maximize the amount of money,
 # subject to the constraint that two adjacent coins cannot be picked up concurrently
-# an array `optima` with length n is created to temporary optimal value
+# an array `optima` with length n is created to store temporary optimal value
 # each entry in `optima` is calculated by the formula: F(i) = max(F(i-1), F(i-2)+Ci)
 # where Ci represents the ith coin in a row of n coins
 # optimal combination is found by backtracking
