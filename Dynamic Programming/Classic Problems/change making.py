@@ -13,7 +13,7 @@
 # optimal combination is found by backtracking
 # in particular, if F(i) > F(i-dj) for each dj in {d},
 # then the denomination dj will be as the part of combination
-# time complexity: Θ(n); space complexity: Θ(n)
+# time complexity: Θ(mn); space complexity: Θ(n)
 
 from math import inf
 
