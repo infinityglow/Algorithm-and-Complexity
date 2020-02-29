@@ -32,8 +32,6 @@ def backtracking(table, weights):
     return items
 
 def knapsack_top_down(t, w, v, i, j):
-    if i < 1 or j < 1:
-        return 0
     if t[i][j] < 0:
         if j < w[i-1]:
             t[i][j] = knapsack_top_down(t, w, v, i-1, j)
@@ -45,6 +43,7 @@ def knapsack_top_down(t, w, v, i, j):
 def knapsack_top_down_main(weights, values, capacity):
     n = len(weights)
     table = np.zeros([n+1, capacity+1], dtype=np.int) - 1
+    table[0, :] = 0; table[:, 0] = 0
     print("Before recursion:\n", table)
     maximum = knapsack_top_down(table, weights, values, n, capacity)
     print("After recursion:\n", table)
