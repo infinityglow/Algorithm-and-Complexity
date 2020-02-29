@@ -43,7 +43,7 @@ def knapsack_top_down(t, w, v, i, j):
 def knapsack_top_down_main(weights, values, capacity):
     n = len(weights)
     table = np.zeros([n+1, capacity+1], dtype=np.int) - 1
-    table[0, :] = 0; table[:, 0] = 0
+    table[0, :] = 0; table[:, 0] = 0  # pad with 0 in the first row and column
     print("Before recursion:\n", table)
     maximum = knapsack_top_down(table, weights, values, n, capacity)
     print("After recursion:\n", table)
