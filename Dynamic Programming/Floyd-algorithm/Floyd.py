@@ -31,9 +31,9 @@ def Floyd(d):
 matrix = np.array([[0, 7, inf, inf, 1, 6],
                    [7, 0, 2, 4, inf, inf],
                    [inf, 2, 0, 9, 3, inf],
-                   [inf, 4, 9, 0, inf, 5],
+                   [inf, 4, 9, 0, inf, inf],
                    [1, inf, 3, inf, 0, 3],
-                   [6, inf, inf, 5, 3, 0]])
+                   [6, inf, inf, inf, 3, 0]])
 
 print("Original matrix:\n", matrix)
 d_matrix = Floyd(matrix)
