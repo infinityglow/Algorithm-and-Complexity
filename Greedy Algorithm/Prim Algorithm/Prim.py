@@ -57,14 +57,6 @@ def fix_down(queue):
             queue[temp_idx] = queue[j]
             temp_idx = j  # update temp_idx
     queue[temp_idx] = temp_ver
-def jump2next(v, e):
-    if e.pre is v:
-        if not e.next.visited:
-            return e.next
-        return None
-    if not e.pre.visited:
-        return e.pre
-    return None
 def Prim(G, source):
     V, _ = G  # retrieve vertices and edges from G
     v_set = V  # vertices set
