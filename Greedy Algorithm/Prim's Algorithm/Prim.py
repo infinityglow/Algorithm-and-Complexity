@@ -8,10 +8,9 @@
 # the algorithm builds a min-heap from edges associated with the current vertex by `fix_up`,
 # then pop the root element out of the heap as the part of spanning tree and reconstruct heap by `fix_down`.
 # after that, we mark the current vertex as `visited`, remove from the `V_set`, and jump to the next vertex,
-# if the next one has been `unvisited`, otherwise, execute from the beginning.
-# the previous steps are looped until `V_set` is empty
+# if the next one has been `unvisited`, otherwise, pop another element from the heap's top and check again.
+# the previous several steps are looped until `V_set` is empty
 # time complexity: Θ(|E|log|V|)
-# space complexity: Θ(|E|+|V|)
 
 class Vertex(object):
     def __init__(self, name):
@@ -62,7 +61,7 @@ def Prim(G, source):
     v_set = V  # vertices set
     pqueue = []  # priority queue
     source.visited = True; v_set.remove(source); cur = source
-    total_cost = 0
+    total_cost = 0  # initialize total cost to 0
     while v_set:
         for e in cur.neighbours:
             if not e.visited:
