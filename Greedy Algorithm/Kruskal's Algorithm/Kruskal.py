@@ -9,7 +9,7 @@
 # repeat the following steps until the spanning tree is complete(num_processed_edge = |V| - 1):
 #   - remove the minimum weighted edge from edge set
 #   - if two vertices connected to this edge comes from the separate set,
-#   merge them togeter by its rank and the edge can be as the part of spanning tree
+#   merge them together by its rank and the edge can be as the part of spanning tree
 #   - otherwise, ignore this edge
 # time complexity: Θ(|E|log|E|)
 
@@ -31,7 +31,7 @@ class DisjointSet(object):
             return self.find(v.parent)
         return v
     def is_same_set(self, u, v):
-        return self.find(u) == self.find(v)
+        return self.find(u) is self.find(v)
     def union(self, u, v):
         u_rep = self.find(u); v_rep = self.find(v)  # get the representative vertex
         # u_rep's rank is greater than v_rep's rank
@@ -43,7 +43,7 @@ class DisjointSet(object):
             u_rep.parent = v_rep
             v_rep.rank = max(v_rep.rank, u_rep.rank+1)
 
-def Krustal(G):
+def Kruskal(G):
     V, E = G  # retrieve vertices and edges from G
     E.sort(key=lambda x: x.weight)  # sort edges in nondecreasing order such that e1.w < e2.w < ... < e|E|.w
     total_cost = 0  # initialize total cost to 0
@@ -80,7 +80,7 @@ E_set = [E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11]
 
 Graph = [V_set, E_set]
 
-print("Krustal's algorithm:")
+print("Kruskal's algorithm:")
 print("The minimum spanning tree comprises of the following edges:")
-cost = Krustal(Graph)
+cost = Kruskal(Graph)
 print("The total cost is %d units" % cost)
