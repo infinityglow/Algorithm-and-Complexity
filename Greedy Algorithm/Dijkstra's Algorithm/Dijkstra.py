@@ -22,7 +22,7 @@ class Vertex(object):
         self.name = name
         self.neighbours = []
         self.visited = False
-        self.parent = None
+        self.predecessor = None
         self.min_dis = inf
 
 class Edge(object):
@@ -80,9 +80,10 @@ def Dijkstra(G, source):
                 pqueue.append(e)  # add to the priority queue
                 fix_up(pqueue)
                 temp = get_next_ver(cur, e)
+                # min(u.min_dis+e(u, v), v.min_dis)
                 if cur.min_dis + e.weight < temp.min_dis:
                     temp.min_dis = cur.min_dis + e.weight
-                    temp.parent = cur
+                    temp.predecessor = cur
         pqueue[0], pqueue[-1] = pqueue[-1], pqueue[0]
         temp = pqueue.pop()  # get rid of the root element
         fix_down(pqueue)
@@ -98,7 +99,7 @@ def get_shortest_path(v):
     path=[]
     while v is not None:
         path.insert(0, v.name)
-        v = v.parent
+        v = v.predecessor
     return path
 
 
