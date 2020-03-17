@@ -461,13 +461,11 @@ tttree.remove(6)
 
 # After deletion
 """
-     2
+     3
     / \ 
-   1   4
-      /
-     3 
+   2   4
 """
 
-print("After deleting 6, 5 and 7:")
+print("After deleting 1, 7, 5, 6:")
 tttree.traversal()
 
