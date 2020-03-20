@@ -12,7 +12,7 @@
 #   4. if a node is red, both its children are black(including NIL)
 #   5. Every path from a given node to its descendent NIL contains the same number of black nodes.
 # if the properties are violated, then rotation or color rearranging are performed to balance the tree,
-# so the time complexity for all three operations are close to Θ(nlog n)
+# so the time complexity for all three operations are close to Θ(log n)
 
 class Node(object):
     def __init__(self, value):
