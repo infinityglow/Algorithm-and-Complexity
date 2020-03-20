@@ -472,4 +472,3 @@ tttree.remove(6)
 
 print("After deleting 1, 7, 5, 6:")
 tttree.traversal()
-
