@@ -15,6 +15,7 @@
 #   case 3: parent node is full, borrow one element from the parent node, so parent node decreases to 2-node
 #   case 4: neither brother node nor parent node is not full, merge parent node and brother node,
 #   and check parent node recursively until meeting the root node
+# time complexity: Θ(log n), in the range of [log2_n, 2log3_n]
 
 class Node(object):
     def __init__(self, value):
@@ -28,31 +29,30 @@ class Node(object):
         # whether node is leaf node
         return not self.left and not self.mid and not self.right
     def is_full(self):
-        # whether node has two elements
+        # whether node is 3-node
         return self.value2 is not None
     def get_child(self, value):
-        # value2 exists
-        if self.value2:
+        # given a value, return its child to be searched
+        if self.value2:  # 3-node
             if value < self.value1:
                 return self.left
             elif value < self.value2:
                 return self.mid
             return self.right
-        # value2 is None
-        else:
+        else:  # 2-node
             if value < self.value1:
                 return self.left
             return self.right
-    # get brother node
+    # return 3-node brother node
     def brother(self):
-        # parent node exists
+        # only return brother when parent is not null
         if self.parent:
-            # two cases if parent node is not full
+            # parent node is 2-node
             if not self.parent.is_full():
                 if self.parent.left is self:
                     return self.parent.right
                 return self.parent.left
-            # four cases if parent node is full
+            # parent node is 3-node
             else:
                 if self.parent.mid is self:
                     if self.parent.right.is_full():
@@ -82,13 +82,13 @@ class TwoThreeTree(object):
             return
         self.insert_node(self.root, value)
     def insert_node(self, root, value):
-        # search until encountering the leaf node
+        # search until `root` is leaf node
         while not root.is_leaf():
             root = root.get_child(value)
-        # node is not full: insert value into node
+        # node is 2-node
         if not root.is_full():
             self.put_item(root, value)
-        # node is full: split node
+        # node is 3-node
         else:
             self.put_item_full(root, value)
     def put_item(self, leaf, value):
@@ -101,12 +101,12 @@ class TwoThreeTree(object):
         """
         :param leaf: leaf node which is full
         :param value: value to be inserted
-        :return: value that needs to be pushed forward, and splitting node
+        :return: value that needs to be pushed upward, and splitting node
         """
         pvalue, new_node = self.split(leaf, value)
         # iterate from leaf up to root
         while leaf.parent:
-            # insert value into the parent node if parent node is not full, then jump out of `while` loop
+            # insert value into the parent node if parent node is 2-node, then jump out of `while` loop
             if not leaf.parent.is_full():
                 self.put_item(leaf.parent, pvalue)
                 # leaf is the parent's left child
@@ -132,6 +132,7 @@ class TwoThreeTree(object):
                     new_node_p.left = leaf.parent.mid; leaf.parent.mid.parent = new_node_p
                     new_node_p.right = leaf.parent.right; leaf.parent.right.parent = new_node_p
                     leaf.parent.right = new_node; new_node.parent = leaf.parent
+                # case 2: splitting node is the parent's middle child
                 elif leaf.parent.mid is leaf:
                     """
                                                      4
@@ -143,6 +144,7 @@ class TwoThreeTree(object):
                     new_node_p.left = new_node; new_node.parent = new_node_p
                     new_node_p.right = leaf.parent.right; leaf.parent.right.parent = new_node_p
                     leaf.parent.right = leaf.parent.mid
+                # case 3: splitting node is the parent's right child
                 else:
                     """
                                                       4
@@ -155,27 +157,26 @@ class TwoThreeTree(object):
                     new_node_p.left = leaf; leaf.parent = new_node_p
                     new_node_p.right = new_node; new_node.parent = new_node_p
                     leaf = temp
-                leaf.parent.mid = None
+                leaf.parent.mid = None  # convert to 2-node
                 leaf = leaf.parent; pvalue = pvalue_p; new_node = new_node_p  # move `leaf`, `pvalue`, `new_node` upward
-        # if pushing forward to the root node, new root node is created
+        # if pushing forward to the root node, a new root node is created
         else:
             new_root = Node(pvalue)
             new_root.left = leaf; new_root.right = new_node
             leaf.parent = new_root; new_node.parent = new_root
             self.root = new_root
-
     def split(self, leaf, value):
         new_node = Node(None)
-        # value1 to be pushed upward
+        # `value1` to be pushed upward
         if value < leaf.value1:
             pvalue = leaf.value1
             leaf.value1 = value
             new_node.value1 = leaf.value2
-        # value to be pushed upward
+        # `value` to be pushed upward
         elif value < leaf.value2:
             pvalue = value
             new_node.value1 = leaf.value2
-        # value2 to be pushed upward
+        # `value2` to be pushed upward
         else:
             pvalue = leaf.value2
             new_node.value1 = value
@@ -216,13 +217,16 @@ class TwoThreeTree(object):
         else:
             brother = node.brother()
             while node.parent:
+                # case 1
                 if brother.is_full():
                     self.leaf_case1(node, brother)
                     break
                 else:
+                    # case 2
                     if node.parent.is_full():
                         self.leaf_case2(node, brother)
                         break
+                    # case 3
                     else:
                         node = self.merge(node, brother)
                         brother = node.brother()
