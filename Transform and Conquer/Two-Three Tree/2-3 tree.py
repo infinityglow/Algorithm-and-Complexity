@@ -15,7 +15,7 @@
 #   case 3: parent node is full, borrow one element from the parent node, so parent node decreases to 2-node
 #   case 4: neither brother node nor parent node is not full, merge parent node and brother node,
 #   and check parent node recursively until encountering the root node
-# time complexity: Θ(log n), in the range of [log2_n, 2log3_n]
+# time complexity: Θ(log n), in the range of [log2_n, log3_n]
 
 class Node(object):
     def __init__(self, value):
