@@ -67,15 +67,16 @@ class TwoThreeTree(object):
     def __init__(self):
         self.root = None
     def search(self, value):
+        # throw an exception if root is null
         if not self.root:
             raise ValueError("The tree is null")
         return self.search_node(self.root, value)
     def search_node(self, root, value):
         if not root:
-            return None
+            return None  # return None if the node is null
         if value == root.value1 or value == root.value2:
             return root
-        return self.search_node(root.get_child(value), value)
+        return self.search_node(root.get_child(value), value)  # search from the expected sub-tree
     def insert(self, value):
         if not self.root:
             self.root = Node(value)
@@ -183,6 +184,9 @@ class TwoThreeTree(object):
         leaf.value2 = None
         return pvalue, new_node
     def remove(self, value):
+        # throw an exception if root is null
+        if not self.root:
+            raise ValueError("The tree is null")
         node = self.search(value)  # find the node to be removed
         # leaf node
         if node.is_leaf():
