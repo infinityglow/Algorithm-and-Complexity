@@ -14,7 +14,7 @@
 #   case 2: brother node is full, borrow one element and balance the tree
 #   case 3: parent node is full, borrow one element from the parent node, so parent node decreases to 2-node
 #   case 4: neither brother node nor parent node is not full, merge parent node and brother node,
-#   and check parent node recursively until meeting the root node
+#   and check parent node recursively until encountering the root node
 # time complexity: Θ(log n), in the range of [log2_n, 2log3_n]
 
 class Node(object):
@@ -354,7 +354,7 @@ class TwoThreeTree(object):
         if node is node.parent.left:
             """
                         4                          4
-                       / \                       /   \
+                       / \                       /   \ 
                       2   6        remove 1     ?     6              
                      / \ / \      --------->    |    / \          
                     1  3 5  7                  2 3  5   7                              
@@ -367,7 +367,7 @@ class TwoThreeTree(object):
         else:
             """
                         4                          4
-                       / \                       /   \
+                       / \                       /   \ 
                       2   6        remove 7     2     ?              
                      / \ / \      --------->   / \    |      
                     1  3 5  7                 1   3  5 6          
