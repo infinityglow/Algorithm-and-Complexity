@@ -4,10 +4,11 @@
 """
 
 # implementation of assignment problem solved by branch-and-bound technique
-# starting from the initial state, for each column of the first row, we calculate
-# the lower bound of the remaining rows. After comparing all states' lower bound,
-# we choose the smallest one as the next state. Loop over the previous procedures,
-# the solution is obtained from the last level of the state-space tree
+# starting from the initial state, for each column of the first row, we cross
+# the corresponding row and column and calculate the lower bound of the remaining rows.
+# after comparing all states' lower bound, we choose the smallest one as the next state.
+# Loop over the previous procedures, until the solution is obtained from the last level
+# of the state-space tree
 
 
 import numpy as np
@@ -54,24 +55,25 @@ def fix_down(queue):
             temp_idx = j  # update temp_idx
     queue[temp_idx] = temp_ver
 def main(c):
-    row, col = c.shape
-    pqueue = []
+    row, col = c.shape  # get the size of the table
+    pqueue = []  # priority queue
     cur_state = State(c, 0, 0, 0)  # initial state
     pqueue.append(cur_state)
     while cur_state.row < row-1:
         cur_state = pqueue.pop()
-        fix_down(pqueue)
+        fix_down(pqueue)  # fix the heap
         cur_matrix = cur_state.matrix; cur_row = cur_state.row
         for cur_col in range(col):
             if cur_matrix[cur_row][cur_col] != np.inf:
                 temp_matrix = cur_matrix.copy()
-                temp_matrix[cur_row, :] = np.inf; temp_matrix[:, cur_col] = np.inf
+                temp_matrix[cur_row, :] = np.inf; temp_matrix[:, cur_col] = np.inf  # mask row and column with infinity
                 lower_bound = compute_lower_bound(temp_matrix[cur_row+1:]) + cur_state.process + cur_matrix[cur_row][cur_col]
-                process = cur_state.process + cur_matrix[cur_row][cur_col]
+                process = cur_state.process + cur_matrix[cur_row][cur_col]  # update processed value
                 pqueue.append(State(temp_matrix, lower_bound, cur_row+1, process))
-                fix_up(pqueue)
+                fix_up(pqueue)  # fix the heap
         pqueue[0], pqueue[-1] = pqueue[-1], pqueue[0]
     return cur_state.lb
+
 
 C = np.array([[9, 5, 7, 6],
               [6, 4, 3, 7],
