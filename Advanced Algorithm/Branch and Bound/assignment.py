@@ -66,7 +66,7 @@ def main(c):
         for cur_col in range(col):
             if cur_matrix[cur_row][cur_col] != np.inf:
                 temp_matrix = cur_matrix.copy()
-                temp_matrix[cur_row, :] = np.inf; temp_matrix[:, cur_col] = np.inf  # mask row and column with infinity
+                temp_matrix[cur_row, :] = np.inf; temp_matrix[:, cur_col] = np.inf  # mask with infinity
                 lower_bound = compute_lower_bound(temp_matrix[cur_row+1:]) + cur_state.process + cur_matrix[cur_row][cur_col]
                 process = cur_state.process + cur_matrix[cur_row][cur_col]  # update processed value
                 pqueue.append(State(temp_matrix, lower_bound, cur_row+1, process))
