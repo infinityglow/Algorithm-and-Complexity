@@ -4,7 +4,7 @@
 """
 
 # implementation of matrix multiplication (2 × 2 square matrix)
-# time complexity: Θ(n^2)
+# time complexity: Θ(n^3)
 
 
 def matmul(A, B):
