@@ -9,7 +9,7 @@
 # time complexity: Θ(mn) for the worst case, Θ(n) for the average case
 
 def string_matching_bf(text, pattern):
-    text = convert(text)
+    pattern = convert(pattern)
     n = len(text); m = len(pattern)
     for i in range(n-m+1):
         j = 0  # count the number of matching pairs
