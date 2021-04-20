@@ -14,8 +14,9 @@ def formula(l, r, key, array):
 
 def interpolation_search(array, key):
     l = 0; r = len(array) - 1
-    while l <= r:
+    while l < r:
         x = l + formula(l, r, key, array)
+        x = max(l, min(x, r))
         if array[x] == key:
             return x
         elif array[x] < key:
